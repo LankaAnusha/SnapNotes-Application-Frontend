@@ -1,0 +1,84 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:620px;
+}
+main #saved-details{
+    margin-top: -150px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    background-color: #AAC4FF;
+    width:400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow:1px 1px 2px 2px white;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    width:250px
+}
+.signup-item-1 input[type='text']{
+    padding:5px;
+    border: none;
+    background-color: #AAC4FF;
+}
+.signup-item-2 input[type='email']{
+    padding:5px;border: none;
+    background-color:#AAC4FF;
+    width:300px;
+}
+.signup-item-3 input[type='password']{
+    padding:5px;border: none;
+    background-color:#AAC4FF;
+    width:260px;
+}
+.signup-item-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.signup-item-3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.signup-item-3 .user-password{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+input[type='text']::placeholder{
+    color: black;
+}
+input[type='email']::placeholder{
+    color: black;
+}
+input[type='password']::placeholder{
+    color: black;
+}
+hr{
+    margin-top:0px;
+    color: black;
+}
+form button{
+    border:none;
+    border-radius: 15px;
+    padding:10px;
+    width:100px;
+    margin-top: 10px;
+}
+input:focus{
+    outline:none
+}
+span{
+    color: red;
+}

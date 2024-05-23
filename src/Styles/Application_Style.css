@@ -1,0 +1,19 @@
+.main{
+    display: flex;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    background-color: rgb(229, 225, 225);
+}
+.application{
+    padding:40px;
+    width:1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+@media only screen and (max-width: 600px) {
+    .application {
+        width: 600px;
+    }
+}

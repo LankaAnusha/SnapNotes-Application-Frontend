@@ -1,0 +1,100 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:620px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    background-color: #AAC4FF;
+    width:400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow:1px 1px 2px 2px white;
+}
+main #error-details{
+margin-top:-150px;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    width:300px !important
+}
+.signin-item-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.signin-item-1 input[type='email']{
+    padding:5px;
+    border: none;
+    background-color: #AAC4FF;
+    width:300px;
+}
+.signin-item-2 input[type='password']{
+    padding:5px;border: none;
+    width:260px;
+    background-color:#AAC4FF;
+}
+.signin-item-3{
+    display: flex;
+    justify-content:space-between;
+    align-items: center !important;
+    margin-top:10px;
+}
+.signin-item-1 {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.signin-item-3 .remember-me{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:5px
+}
+.signin-item-2 .user-password{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signin-item-3 input[type='checkbox']{
+   height: 20px;
+   margin-top:-8px !important;
+}
+.signin-item-3 input[type='password']{
+    height: 20px;
+    margin-top:-8px !important;border: none;
+    background-color: #AAC4FF;
+ }
+input[type='email']::placeholder{
+    color: black;
+}
+input[type='password']::placeholder{
+    color: black;
+}
+hr{
+    margin-top:0px;
+    color: black;
+}
+form button{
+    border:none;
+    border-radius:5px;
+    padding-left:20px !important;
+    padding-right:20px !important;
+    width:fit-content !important;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+form button:hover{
+    box-shadow: 2px 2px 2px 3px rgb(240, 238, 238);
+}
+input:focus{
+    outline:none
+}

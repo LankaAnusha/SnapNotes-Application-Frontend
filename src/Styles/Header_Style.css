@@ -1,0 +1,75 @@
+header{
+    border-radius:10px;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    padding-right:20px;
+    padding-left:20px;
+    height:45px;
+    width:1000px;
+    margin-top:-20px;
+}
+h4{
+    font-weight: lighter !important;
+    font-size: 20px !important;
+}
+.header-item-1{
+   display: flex;
+   justify-content:space-between;
+   align-items: center;
+   gap:20px;
+   padding:5px;
+}
+.header-item-1 h4{
+    margin-top:10px;
+}
+.header-item-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    margin-top:10px
+}
+.header-item-2 #all{
+    background-color:#7c9fef;
+    border-radius: 5px;
+    padding:3px;width:100px;text-align: center;
+    color: whitesmoke;
+}
+ .header-item-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    border-radius: 5px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
+    margin-right:-10px;
+    cursor: pointer;
+ }
+ .header-item-3 table td{
+   padding:5px;width:70px;text-align: center;border-collapse: collapse;border: 1px solid  rgb(201, 198, 198);
+ }
+ .header-item-3 table td:hover{
+    background-color:rgb(237, 190, 103) ;
+ }
+ .header-item-3 table{
+    border-collapse:separate;margin-top:-5px; border-radius:5px; border-spacing: 0;border:1px solid rgb(201, 198, 198);
+ } 
+ #user-image{
+    height: 25px;
+    cursor: pointer;
+ }
+ #acc{
+    display: none;
+ }
+ #acc h4{
+    background-color: #7c9fef;
+    padding:10px;
+    border-radius: 10px;
+    color: whitesmoke;
+    cursor: pointer;
+ }

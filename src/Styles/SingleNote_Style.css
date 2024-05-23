@@ -1,0 +1,17 @@
+.single-note{
+    display: flex;
+    gap:15px;
+    margin-top: 15px;
+    padding:15px;
+    border-radius: 10px;
+    width:460px;
+    cursor: pointer;
+}
+.single-note .image img{
+    width:100px !important;
+}
+.single-note .date{
+    display: flex;
+    flex-direction:row;
+    margin-top:15px;gap:5px;
+}
