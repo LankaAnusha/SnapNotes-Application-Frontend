@@ -47,7 +47,7 @@ function Signin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-          axios.get(`https://snapnotes-application-backend.onrender.com/getuserdetails/${state.email}?password=${state.password}`)
+          axios.get(`http://localhost:1965/getuserdetails/${state.email}?password=${state.password}`)
           .then((res)=>{
             setTimeout(()=>navigate('/',{state:res.data}))
         })
@@ -67,7 +67,7 @@ function Signin() {
 };
 
 const handleChangePassword=(e)=>{
-  axios.patch('https://snapnotes-application-backend.onrender.com/updateuserpassword',{email:state.email,newPassword:pwd_ref1.current.value})
+  axios.patch('http://localhost:1965/updateuserpassword',{email:state.email,newPassword:pwd_ref1.current.value})
   e.preventDefault()
   setForgotPassword(false)
   pwd_ref.current.value=''

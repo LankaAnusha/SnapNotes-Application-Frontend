@@ -37,6 +37,10 @@ function NewNote({handlenewNote}) {
     reader.readAsDataURL(file);
   };
   function handleSubmit() {
+    if (!notesdata.content.trim()) {
+      alert('Please enter your Title and Content ');
+      return;
+    }
     notesdata.UserId=userId
     setTimeout(()=>{
     const ele1=document.getElementById('note-title-content')

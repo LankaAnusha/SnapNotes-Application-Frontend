@@ -16,7 +16,7 @@ function Notes(props) {
 
     const fetchAllNotes = useCallback(() => {
         setLoading(true); 
-        axios.get(`https://snapnotes-application-backend.onrender.com/getnotedetails/${userId}`)
+        axios.get(`http://localhost:1965/getnotedetails/${userId}`)
             .then(res => {
                 setAllNotes(res.data);
                 setBackUpAllNotes(res.data)
@@ -27,7 +27,7 @@ function Notes(props) {
 
     const fetchFavoriteNotes = useCallback(() => {
         setLoading(true);
-        axios.get(`https://snapnotes-application-backend.onrender.com/getfavnotesdetails/${userId}`)
+        axios.get(`http://localhost:1965/getfavnotesdetails/${userId}`)
             .then(res => {
                 setAllNotes(res.data);
                 setBackUpAllNotes(res.data)
@@ -38,7 +38,7 @@ function Notes(props) {
 
     const fetchDeletedNotes = useCallback(() => {
         setLoading(true);
-        axios.get(`https://snapnotes-application-backend.onrender.com/getdeletednotesdetails/${userId}`)
+        axios.get(`http://localhost:1965/getdeletednotesdetails/${userId}`)
             .then(res => {
                 setAllNotes(res.data);
                 setBackUpAllNotes(res.data)
@@ -67,7 +67,7 @@ function Notes(props) {
  
     const trashnote = useCallback(() => {
         if (Object.keys(props.TrashNote).length !== 0 && !props.display) {
-            axios.post('https://snapnotes-application-backend.onrender.com/posttrashnote', props.TrashNote);
+            axios.post('http://localhost:1965/posttrashnote', props.TrashNote);
             const NoteId = props.TrashNote.NoteId;
             const updatedNotes = allnotes.filter(note => note.NoteId !== NoteId);
             setAllNotes(updatedNotes);
@@ -83,7 +83,7 @@ function Notes(props) {
     const newnote=useCallback(()=>{
         if(Object.keys(props.newNote).length !== 0 && !props.display)
             {
-                 axios.post('https://snapnotes-application-backend.onrender.com/postnotedetails',props.newNote) 
+                 axios.post('http://localhost:1965/postnotedetails',props.newNote) 
                  .then(res=>{
                     const updatedNote={...props.newNote,NoteId:res.data.toString()}
                     setAllNotes(prevNotes => [...prevNotes, updatedNote]);
@@ -99,7 +99,7 @@ function Notes(props) {
     const editednote = useCallback(() => {
         const content = props.editedNote.content;
         const NoteId = props.editedNote.NoteId;
-        axios.patch('https://snapnotes-application-backend.onrender.com/updatenotecontent', {content:content,NoteId:NoteId})
+        axios.patch('http://localhost:1965/updatenotecontent', {content:content,NoteId:NoteId})
             .then(response => {
                 const updatedData = allnotes.map(note => {
                     if (note.NoteId === props.editedNote.NoteId) {
@@ -120,7 +120,7 @@ function Notes(props) {
         if(Object.keys(props.favNote).length !== 0)
             {
                 if(props.favNote.like==='like_enable')
-                {axios.post('https://snapnotes-application-backend.onrender.com/postfavnotes',props.favNote.data)
+                {axios.post('http://localhost:1965/postfavnotes',props.favNote.data)
                 const updatedData = allnotes.map(note => {
                         if (note.NoteId === props.favNote.data.NoteId) {
                             note.fav=true
@@ -131,7 +131,7 @@ function Notes(props) {
                     setAllNotes(prevNotes => [...updatedData]); 
                 }
                 else{
-                    axios.post('https://snapnotes-application-backend.onrender.com/deletefavnote',props.favNote.data)
+                    axios.post('http://localhost:1965/deletefavnote',props.favNote.data)
                     const updatedData = allnotes.map(note => {
                         if (note.NoteId === props.favNote.data.NoteId) {
                             note.fav=false
@@ -153,7 +153,7 @@ function Notes(props) {
         {
             const updatedData=allnotes.filter((note)=>note.NoteId!==props.restoreNote.NoteId)
             setAllNotes(updatedData)
-            axios.post('https://snapnotes-application-backend.onrender.com/restorenotedetails',props.restoreNote)
+            axios.post('http://localhost:1965/restorenotedetails',props.restoreNote)
         }
     },[props.restoreNote])
     useEffect(()=>{
@@ -164,7 +164,8 @@ function Notes(props) {
         console.log(data);
         const filteredNotes = allnotes.filter((note) => {
             const title = note.title.toLowerCase();
-            return title.includes(data.toLowerCase());
+            const content = note.content.toLowerCase();
+            return (title.includes(data.toLowerCase()) || content.includes(data.toLowerCase()));
         });
         setAllNotes(filteredNotes);
     }
@@ -179,7 +180,7 @@ function Notes(props) {
         {loading && <>
             <div className='loading' style={{display:'flex',gap:'20px'}}>
             <h5 style={{textAlign:'center'}}>Loading ...</h5>
-            <img src={loadingImage} style={{height:'30px',borderRadius:'50px'}}/>
+            <img src={loadingImage} style={{height:'30px',borderRadius:'50px'}} alt="loading"/>
             </div>
             </>}
         <div className='notes'>
@@ -187,7 +188,7 @@ function Notes(props) {
                 <>
                    <div className='header' style={{display:'flex',justifyContent:'space-between'}}>
                    <h5 style={{ color: '#10439F' }}>{allnotes.length} Notes</h5>
-                   {allnotes.length!==0 && 
+                   { 
                    <div className='search' style={{display:'flex',gap:'7px'}}>
                    <img src={search} style={{marginTop:'5px',height:'15px'}}/>
                    <input type='text' ref={searchtextRef} onFocus={()=>setWrong(true)} placeholder='Search here for a note' onChange={(e)=>handleSearch(e.target.value)} style={{border:'none',marginTop:'-10px',backgroundColor:'whitesmoke'}}/>

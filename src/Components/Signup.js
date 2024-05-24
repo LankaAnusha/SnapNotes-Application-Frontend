@@ -50,7 +50,7 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      axios.post('https://snapnotes-application-backend.onrender.com/postuserdetails',state)
+      axios.post('http://localhost:1965/postuserdetails',state)
       .then((res)=>{
        const ele=document.getElementById('saved-details')
        ele.innerHTML='Your details saved. Successfully!! Once login to continue further'
